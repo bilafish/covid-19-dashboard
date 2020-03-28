@@ -10,7 +10,6 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -30,12 +29,18 @@ const Layout = ({ children }) => {
         style={{
           margin: `0 auto`,
           maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
+          textAlign: `center`,
         }}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
+        <footer
+          style={{
+            position: "fixed",
+            bottom: "1rem",
+            left: "2rem",
+          }}
+        >
+          © {new Date().getFullYear()}, Built with 💜
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
