@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "covid-19-dashboard",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A dashboard to show the current global trends of the Covid-19 pandemic.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jason Zheng <jasonzhengyj@gmail.com>",
   "dependencies": {
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
@@ -26,6 +26,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "code": "gatsby clean && gatsby develop",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
