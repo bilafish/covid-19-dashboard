@@ -3,12 +3,12 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import GlobalMetrics from "../components/globalmetrics"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h3>Hi people</h3>
-    <Link to="/page-2/">Go to page 2</Link>
+    <GlobalMetrics />
   </Layout>
 )
 
