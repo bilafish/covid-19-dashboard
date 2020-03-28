@@ -2,6 +2,8 @@
   🦠 Covid-19 Dashboard
 </h1>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2f593deb-fd7b-4259-b3aa-e302042ed308/deploy-status)](https://app.netlify.com/sites/fight-covid19/deploys)
+
 This dashboard aims to raise awareness on the global pandemic caused by the Covid-19 outbreak and share useful information on safety measures to fight the virus.
 
 ## Technologies
