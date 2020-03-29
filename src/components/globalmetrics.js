@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import LoadingLottie from "../components/lottie/loading"
 import parseDate from "../utils/dateparser"
+import thousands_separators from "../utils/numberformatter"
 
 const BasicCard = styled.div`
   background: #6b809e;
@@ -21,13 +22,7 @@ const Container = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 `
-const thousands_separators = (num) => {
-  const num_parts = num.toString().split(".")
-  num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  return num_parts.join(".")
-}
 
-//TODO: Add data fetching from endpoint https://covid19.mathdro.id/api
 const GlobalMetrics = () => {
   const [data, setData] = useState(null)
   useEffect(() => {
