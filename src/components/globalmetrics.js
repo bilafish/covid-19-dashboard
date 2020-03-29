@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
+import LoadingLottie from "../components/lottie/loading"
 
 const BasicCard = styled.div`
   background: #6b809e;
@@ -19,23 +20,52 @@ const Container = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 `
+const thousands_separators = (num) => {
+  const num_parts = num.toString().split(".")
+  num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  return num_parts.join(".")
+}
+
 //TODO: Add data fetching from endpoint https://covid19.mathdro.id/api
 const GlobalMetrics = () => {
+  const [data, setData] = useState(null)
+  useEffect(() => {
+    // get data from API endpoint
+    fetch(`https://covid19.mathdro.id/api`)
+      .then((response) => response.json()) // parse JSON from request
+      .then((resultData) => {
+        setData({
+          confirmed: thousands_separators(resultData.confirmed.value),
+          recovered: thousands_separators(resultData.recovered.value),
+          deaths: thousands_separators(resultData.deaths.value),
+        })
+      }) // set data
+      .catch((error) => console.log(error))
+  }, [])
   return (
-    <Container>
-      <BasicCard>
-        <span>Confirmed</span>
-        <h1 style={{ color: "#FFF376" }}>659,367</h1>
-      </BasicCard>
-      <BasicCard>
-        <span>Recovered</span>
-        <h1 style={{ color: "#81D3E1" }}>139,304</h1>
-      </BasicCard>
-      <BasicCard>
-        <span>Deaths</span>
-        <h1 style={{ color: "#FEA3A8" }}>30,475</h1>
-      </BasicCard>
-    </Container>
+    <>
+      <h2>Global Trend</h2>
+      <Container>
+        {data ? (
+          <>
+            <BasicCard>
+              <span>Confirmed</span>
+              <h1 style={{ color: "#FFF376" }}>{data.confirmed}</h1>
+            </BasicCard>
+            <BasicCard>
+              <span>Recovered</span>
+              <h1 style={{ color: "#81D3E1" }}>{data.recovered}</h1>
+            </BasicCard>
+            <BasicCard>
+              <span>Deaths</span>
+              <h1 style={{ color: "#FEA3A8" }}>{data.deaths}</h1>
+            </BasicCard>
+          </>
+        ) : (
+          <LoadingLottie />
+        )}
+      </Container>
+    </>
   )
 }
 
