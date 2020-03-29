@@ -6,6 +6,7 @@ const BasicCard = styled.div`
   padding: 1rem 1rem;
   border-radius: 0.7rem;
   margin-left: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +17,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 `
 //TODO: Add data fetching from endpoint https://covid19.mathdro.id/api
 const GlobalMetrics = () => {
