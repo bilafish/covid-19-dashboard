@@ -6,6 +6,7 @@
   "author": "Jason Zheng <jasonzhengyj@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
+    "dayjs": "^1.8.23",
     "gatsby": "^2.20.8",
     "gatsby-image": "^2.3.1",
     "gatsby-plugin-manifest": "^2.3.3",
