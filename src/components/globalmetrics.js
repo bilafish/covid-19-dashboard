@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import LoadingLottie from "../components/lottie/loading"
+import parseDate from "../utils/dateparser"
 
 const BasicCard = styled.div`
   background: #6b809e;
@@ -38,6 +39,7 @@ const GlobalMetrics = () => {
           confirmed: thousands_separators(resultData.confirmed.value),
           recovered: thousands_separators(resultData.recovered.value),
           deaths: thousands_separators(resultData.deaths.value),
+          lastUpdated: parseDate(resultData.lastUpdate),
         })
       }) // set data
       .catch((error) => console.log(error))
@@ -65,6 +67,7 @@ const GlobalMetrics = () => {
           <LoadingLottie />
         )}
       </Container>
+      {data && <p>Last Updated at {data.lastUpdated}</p>}
     </>
   )
 }
