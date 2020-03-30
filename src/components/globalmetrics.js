@@ -3,6 +3,7 @@ import styled from "styled-components"
 import LoadingLottie from "../components/lottie/loading"
 import parseDate from "../utils/dateparser"
 import thousands_separators from "../utils/numberformatter"
+import UpIcon from "../images/icons/up-triangle.svg"
 
 const BasicCard = styled.div`
   background: #6b809e;
@@ -25,32 +26,87 @@ const Container = styled.div`
   margin-top: 1rem;
 `
 
+const calculateDelta = (current, previous) => {
+  return (((current - previous) / previous) * 100).toFixed(1)
+}
+
 const GlobalMetrics = () => {
+  const [loading, setLoading] = useState(true)
   const [data, setData] = useState(null)
+
   useEffect(() => {
-    // get data from API endpoint
-    fetch(`https://covid19.mathdro.id/api`)
-      .then((response) => response.json()) // parse JSON from request
-      .then((resultData) => {
+    // Using Promise.all to manage multiple fetch requests
+    const promises = [
+      fetch(`https://covid19.mathdro.id/api`),
+      fetch(`https://covid19.mathdro.id/api/daily`),
+    ]
+
+    Promise.all(promises)
+      .then((res) => {
+        let responses = res.map((response) => response.json())
+        return Promise.all(responses)
+      })
+      .then((json) => {
+        const current = json[0]
+        const daily = json[1]
+        const yesterday = daily[daily.length - 1]
+        // Calculate delta change in Confirmed cases
+        const deltaConfirmed = calculateDelta(
+          current.confirmed.value,
+          yesterday.confirmed.total
+        )
+        const deltaDeaths = calculateDelta(
+          current.deaths.value,
+          yesterday.deaths.total
+        )
+
         setData({
-          confirmed: thousands_separators(resultData.confirmed.value),
-          recovered: thousands_separators(resultData.recovered.value),
-          deaths: thousands_separators(resultData.deaths.value),
-          lastUpdated: parseDate(resultData.lastUpdate),
+          confirmed: {
+            value: thousands_separators(current.confirmed.value),
+            delta: deltaConfirmed,
+          },
+          recovered: thousands_separators(current.recovered.value),
+          deaths: {
+            value: thousands_separators(current.deaths.value),
+            delta: deltaDeaths,
+          },
+          lastUpdated: parseDate(current.lastUpdate),
         })
-      }) // set data
-      .catch((error) => console.log(error))
+        setLoading(false)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }, [])
   return (
     <>
       <h2 style={{ color: "#fea3a8" }}>Covid-19</h2>
       <span style={{ fontSize: "1.5rem" }}>Global Trend</span>
       <Container>
-        {data ? (
+        {loading ? (
+          <LoadingLottie />
+        ) : (
           <>
             <BasicCard>
               <span>Confirmed</span>
-              <h1 style={{ color: "#FFF376" }}>{data.confirmed}</h1>
+              <h1 style={{ color: "#FFF376" }}>{data.confirmed.value}</h1>
+              <span
+                style={{
+                  fontWeight: "100",
+                  color: "#e4e0d5",
+                  fontSize: "0.95rem",
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                {data.confirmed.delta}%
+                <UpIcon
+                  width="0.8rem"
+                  fill="#67a9b4"
+                  style={{ marginLeft: "0.5rem" }}
+                />{" "}
+              </span>
             </BasicCard>
             <BasicCard>
               <span>Recovered</span>
@@ -58,11 +114,26 @@ const GlobalMetrics = () => {
             </BasicCard>
             <BasicCard>
               <span>Deaths</span>
-              <h1 style={{ color: "#FEA3A8" }}>{data.deaths}</h1>
+              <h1 style={{ color: "#FEA3A8" }}>{data.deaths.value}</h1>
+              <span
+                style={{
+                  fontWeight: "100",
+                  color: "#e4e0d5",
+                  fontSize: "0.95rem",
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                {data.deaths.delta}%
+                <UpIcon
+                  width="0.8rem"
+                  fill="#67a9b4"
+                  style={{ marginLeft: "0.5rem" }}
+                />{" "}
+              </span>
             </BasicCard>
           </>
-        ) : (
-          <LoadingLottie />
         )}
       </Container>
       {data && <p>Last Updated at {data.lastUpdated}</p>}
