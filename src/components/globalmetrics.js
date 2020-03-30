@@ -21,6 +21,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 1rem;
 `
 
 const GlobalMetrics = () => {
@@ -41,7 +42,8 @@ const GlobalMetrics = () => {
   }, [])
   return (
     <>
-      <h2>Global Trend</h2>
+      <h2 style={{ color: "#fea3a8" }}>Covid-19</h2>
+      <span style={{ fontSize: "1.5rem" }}>Global Trend</span>
       <Container>
         {data ? (
           <>
