@@ -14,6 +14,7 @@ const BasicCard = styled.div`
   flex-direction: column;
   align-items: center;
   min-width: 10rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem #56667e;
 `
 
 const Container = styled.div`

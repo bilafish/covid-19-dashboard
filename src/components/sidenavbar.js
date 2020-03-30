@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Logo from "../images/logo.svg"
-import Link from "gatsby"
+import { navigate } from "gatsby"
 
 const HomeIcon = () => {
   return (
@@ -38,6 +38,7 @@ const NavItem = styled.div`
   width: 100%;
   border-radius: 1rem 0 0 1rem;
   padding: 1rem 0;
+  cursor: pointer;
 `
 
 const SideNavBar = () => {
@@ -45,7 +46,13 @@ const SideNavBar = () => {
     <BasicNav>
       <Logo width="3rem" />
       <NavContainer>
-        <NavItem>
+        <NavItem
+          onClick={(event) => {
+            event.preventDefault()
+            // TODO: do something with form values
+            navigate("/")
+          }}
+        >
           <HomeIcon />
         </NavItem>
       </NavContainer>
