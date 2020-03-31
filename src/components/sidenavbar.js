@@ -24,6 +24,7 @@ const BasicNav = styled.div`
   background: #fea3a8;
   left: 0;
   top: 0;
+  text-align: center;
 `
 
 const NavContainer = styled.div`
