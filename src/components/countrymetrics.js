@@ -6,19 +6,24 @@ import thousands_separators from "../utils/numberformatter"
 import arraySorter from "../utils/arraysorter"
 
 const Container = styled.div`
-  grid-column: 1 / 12;
-  grid-row: 5 / 11;
   background: #6b809e;
-  margin-left: 1rem;
   border-radius: 1rem;
-  margin-bottom: 1.5rem;
+  height: 30rem;
+  margin: 1.5rem 2rem 1.5rem 2rem;
   padding: 0.5rem 0.5rem;
   text-align: center;
   display: flex;
   flex-direction: row;
   justify-self: center;
-  width: 38rem;
+
   box-shadow: 0.1rem 0.1rem 0.5rem #56667e;
+  @media (min-width: 800px) {
+    grid-column: 1 / 12;
+    grid-row: 5 / 11;
+    width: 38rem;
+    margin: 0 0 0 1rem;
+    height: 90%;
+  }
 `
 
 const SearchBar = styled.input.attrs((props) => ({

@@ -1,7 +1,9 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Logo from "../images/logo.svg"
 
+// This component only appears for smaller device widths < 800px
 const Header = ({ siteTitle }) => (
   <header
     style={{
@@ -11,22 +13,12 @@ const Header = ({ siteTitle }) => (
   >
     <div
       style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        margin: `0`,
+        padding: `0`,
+        textAlign: `center`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `inherit`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+      <Logo width="3rem" />
     </div>
   </header>
 )
