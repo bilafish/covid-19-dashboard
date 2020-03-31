@@ -3,6 +3,7 @@ import styled from "styled-components"
 import LoadingLottie from "../components/lottie/loading"
 import { countriesHashmap, countries } from "../utils/countrieshashmap"
 import thousands_separators from "../utils/numberformatter"
+import arraySorter from "../utils/arraysorter"
 
 const Container = styled.div`
   grid-column: 1 / 12;
@@ -93,7 +94,7 @@ const CountryMetrics = () => {
             console.log(result.countryRegion)
           }
         }
-        console.log(countries)
+        countries.sort(arraySorter("confirmedCount", "desc"))
         setData(countries)
         setLoading(false)
       })
@@ -109,8 +110,8 @@ const CountryMetrics = () => {
             <LoadingLottie />
           ) : (
             <>
-              {countries.map((country) => (
-                <CountriesListRow>
+              {countries.map((country, index) => (
+                <CountriesListRow key={index}>
                   <span
                     style={{
                       width: "50%",
