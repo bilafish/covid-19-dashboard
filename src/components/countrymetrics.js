@@ -17,6 +17,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-self: center;
   width: 38rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem #56667e;
 `
 
 const SearchBar = styled.input.attrs((props) => ({
