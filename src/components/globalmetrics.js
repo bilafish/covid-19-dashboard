@@ -5,6 +5,13 @@ import parseDate from "../utils/dateparser"
 import thousands_separators from "../utils/numberformatter"
 import UpIcon from "../images/icons/up-triangle.svg"
 
+const Container = styled.div`
+  grid-column: 1 / 12;
+  grid-row: 2 / 6;
+  align-self: start;
+  justify-self: center;
+`
+
 const BasicCard = styled.div`
   background: #6b809e;
   padding: 1rem 1rem;
@@ -18,12 +25,12 @@ const BasicCard = styled.div`
   box-shadow: 0.1rem 0.1rem 0.5rem #56667e;
 `
 
-const Container = styled.div`
+const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 `
 
 const calculateDelta = (current, previous) => {
@@ -79,17 +86,18 @@ const GlobalMetrics = () => {
       })
   }, [])
   return (
-    <>
-      <h2 style={{ color: "#fea3a8" }}>Covid-19</h2>
-      <span style={{ fontSize: "1.5rem" }}>Global Trend</span>
-      <Container>
+    <Container>
+      <span style={{ fontSize: "1.5rem", marginLeft: "1.5rem" }}>
+        Global Trend
+      </span>
+      <CardContainer>
         {loading ? (
           <LoadingLottie />
         ) : (
           <>
             <BasicCard>
               <span>Confirmed</span>
-              <h1 style={{ color: "#FFF376" }}>{data.confirmed.value}</h1>
+              <h2 style={{ color: "#FFF376" }}>{data.confirmed.value}</h2>
               <span
                 style={{
                   fontWeight: "100",
@@ -110,11 +118,11 @@ const GlobalMetrics = () => {
             </BasicCard>
             <BasicCard>
               <span>Recovered</span>
-              <h1 style={{ color: "#81D3E1" }}>{data.recovered}</h1>
+              <h2 style={{ color: "#81D3E1" }}>{data.recovered}</h2>
             </BasicCard>
             <BasicCard>
               <span>Deaths</span>
-              <h1 style={{ color: "#FEA3A8" }}>{data.deaths.value}</h1>
+              <h2 style={{ color: "#FEA3A8" }}>{data.deaths.value}</h2>
               <span
                 style={{
                   fontWeight: "100",
@@ -135,9 +143,13 @@ const GlobalMetrics = () => {
             </BasicCard>
           </>
         )}
-      </Container>
-      {data && <p>Last Updated at {data.lastUpdated}</p>}
-    </>
+      </CardContainer>
+      {data && (
+        <span style={{ marginLeft: "1.5rem", fontSize: "0.8rem" }}>
+          Last Updated at {data.lastUpdated}
+        </span>
+      )}
+    </Container>
   )
 }
 
