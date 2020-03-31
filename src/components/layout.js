@@ -26,17 +26,19 @@ const Layout = ({ children }) => {
       >
         {matches && <SideNavBar />}
         <main>{children}</main>
-        <footer
-          style={{
-            position: "fixed",
-            bottom: "1rem",
-            right: "2rem",
-          }}
-        >
-          © {new Date().getFullYear()}, Built with 💜
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        {matches && (
+          <footer
+            style={{
+              position: "fixed",
+              bottom: "1rem",
+              right: "2rem",
+            }}
+          >
+            © {new Date().getFullYear()}, Built with 💜
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
+        )}
       </div>
     </>
   )

@@ -11,6 +11,14 @@ const Container = styled.div`
   align-self: start;
   justify-self: center;
 `
+const Title = styled.div`
+  font-size: 1.5rem;
+  margin-left: 1.5rem;
+  @media (max-width: 800px) {
+    margin-left: 0;
+    text-align: center;
+  }
+`
 
 const BasicCard = styled.div`
   background: #6b809e;
@@ -87,9 +95,7 @@ const GlobalMetrics = () => {
   }, [])
   return (
     <Container>
-      <span style={{ fontSize: "1.5rem", marginLeft: "1.5rem" }}>
-        Global Trend
-      </span>
+      <Title>Global Trend</Title>
       <CardContainer>
         {loading ? (
           <LoadingLottie />
@@ -145,9 +151,15 @@ const GlobalMetrics = () => {
         )}
       </CardContainer>
       {data && (
-        <span style={{ marginLeft: "1.5rem", fontSize: "0.8rem" }}>
+        <div
+          style={{
+            marginLeft: "1.5rem",
+            fontSize: "0.8rem",
+            textAlign: "center",
+          }}
+        >
           Last Updated at {data.lastUpdated}
-        </span>
+        </div>
       )}
     </Container>
   )
