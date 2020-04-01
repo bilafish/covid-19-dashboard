@@ -62,7 +62,13 @@ const CountriesListRow = styled.div`
 
 const CountryMetrics = () => {
   const [loading, setLoading] = useState(true)
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
+  const [searchValue, setSearchValue] = useState("")
+  let filteredData = data.filter((country) => {
+    return (
+      country.country.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1
+    )
+  })
 
   useEffect(() => {
     fetch(`https://covid19.mathdro.id/api/confirmed`)
@@ -76,6 +82,7 @@ const CountryMetrics = () => {
             console.log(result.countryRegion)
           }
         }
+        // Sort country data by highest confirmed cases
         countries.sort(arraySorter("confirmedCount", "desc"))
         setData(countries)
         setLoading(false)
@@ -87,7 +94,7 @@ const CountryMetrics = () => {
     <Container>
       <div style={{ width: "100%", paddingTop: "1rem" }}>
         <Header>
-          <SearchBar />
+          <SearchBar handler={setSearchValue} />
           <h4>Confirmed Cases by Country</h4>
         </Header>
         <CountriesList>
@@ -95,7 +102,7 @@ const CountryMetrics = () => {
             <LoadingLottie />
           ) : (
             <>
-              {countries.map((country, index) => (
+              {filteredData.map((country, index) => (
                 <CountriesListRow key={index}>
                   <span
                     style={{
