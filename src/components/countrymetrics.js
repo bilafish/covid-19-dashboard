@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import LoadingLottie from "../components/lottie/loading"
+import SearchBar from "../components/searchbar"
 import { countriesHashmap, countries } from "../utils/countrieshashmap"
 import thousands_separators from "../utils/numberformatter"
 import arraySorter from "../utils/arraysorter"
@@ -26,34 +27,10 @@ const Container = styled.div`
   }
 `
 
-const SearchBar = styled.input.attrs((props) => ({
-  // we can define static props
-  type: "search",
-  placeholder: "Search",
-}))`
-  -webkit-appearance: textfield;
-  background-color: #2c4975;
-  background-image: url(https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-magnifier-5.png&r=249&g=194&b=255);
-  background-position: 9px center;
-  background-repeat: no-repeat no-repeat;
-  border: 1px solid #2c4975;
-  border-radius: 10em;
-  box-sizing: content-box;
-  font-size: 1rem;
-  outline: none;
-  padding: 9px 10px 9px 32px;
-  transition: all 0.5s;
-  width: 5rem;
-  color: #fdf9ed;
-
-  ::-webkit-search-cancel-button {
-    position: relative;
-    right: 20px;
-    -webkit-appearance: none;
-    height: 20px;
-    width: 20px;
-    border-radius: 10px;
-  }
+const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const CountriesList = styled.div`
@@ -62,7 +39,7 @@ const CountriesList = styled.div`
   align-items: center;
   padding: 0 1rem;
   overflow: auto;
-  height: 85%;
+  height: 75%;
   ::-webkit-scrollbar {
     width: 0.4rem;
   }
@@ -108,8 +85,11 @@ const CountryMetrics = () => {
 
   return (
     <Container>
-      <div style={{ width: "100%" }}>
-        <h4>Confirmed Cases by Country</h4>
+      <div style={{ width: "100%", paddingTop: "1rem" }}>
+        <Header>
+          <SearchBar />
+          <h4>Confirmed Cases by Country</h4>
+        </Header>
         <CountriesList>
           {loading ? (
             <LoadingLottie />
