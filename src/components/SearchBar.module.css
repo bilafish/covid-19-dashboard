@@ -20,14 +20,14 @@
 }
 
 .searchButton {
-  width: 40px;
-  height: 36px;
   border: 1px solid #60738f;
   background: #60738f;
-  text-align: center;
   border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 0.5rem;
 }
 
 /*Resize the wrap to see the search bar change!*/
