@@ -10,12 +10,13 @@ import arraySorter from "../utils/arraysorter"
 const Container = styled.div`
   background: #6b809e;
   border-radius: 1rem;
-  height: 30rem;
+  height: 48rem;
   margin: 1.5rem 2rem 1.5rem 2rem;
   padding: 0.5rem 0.5rem;
   text-align: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   justify-self: center;
   box-shadow: 0.1rem 0.1rem 0.5rem #56667e;
 
@@ -36,13 +37,26 @@ const Header = styled.div`
   align-items: center;
 `
 
+const LeftPanel = styled.div`
+  width: 40%;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 1rem 1rem;
+  }
+`
+
 const CountriesList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 1rem;
   overflow: auto;
-  height: 70%;
+  height: 18rem;
+  @media (max-width: 800px) {
+    height: 22rem;
+  }
   ::-webkit-scrollbar {
     width: 0.4rem;
   }
@@ -95,7 +109,7 @@ const CountryMetrics = () => {
 
   return (
     <Container>
-      <div style={{ width: "40%", paddingTop: "1rem", paddingLeft: "1rem" }}>
+      <LeftPanel>
         <Header>
           <SearchBar handler={setSearchValue} />
           <h4>Confirmed Cases by Country</h4>
@@ -132,7 +146,7 @@ const CountryMetrics = () => {
             </>
           )}
         </CountriesList>
-      </div>
+      </LeftPanel>
       <div
         style={{
           alignSelf: "center",

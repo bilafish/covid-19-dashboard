@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 import thousands_separators from "../utils/numberformatter"
 
 const data = [
@@ -131,10 +132,14 @@ const CustomizedYAxisTick = ({ x, y, payload }) => {
 }
 
 const LineChartTrend = () => {
+  const matches = useMediaQuery("(min-width:800px)")
+  let width = matches ? 500 : 300
+  let height = matches ? 390 : 234
+
   return (
     <LineChart
-      width={500}
-      height={390}
+      width={width}
+      height={height}
       data={data}
       margin={{
         top: 5,
