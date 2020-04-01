@@ -6,9 +6,12 @@
 
 This dashboard aims to raise awareness on the global pandemic caused by the Covid-19 outbreak and share useful information on safety measures to fight the virus.
 
+[Live Demo](https://fight-covid19.netlify.app/)
+
 ## Technologies
 
 - [Gatsby](https://www.gatsbyjs.org/) (Front-End)
+- [mathdroid API](https://github.com/mathdroid/covid-19-api) (Data sourced from John Hopkins University CSSE)
 
 ## Development
 
