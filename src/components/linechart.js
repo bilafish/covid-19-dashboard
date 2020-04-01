@@ -83,6 +83,53 @@ const data = [
   { date: "2020-03-31", confirmed: 857487, deaths: 42107 },
 ]
 
+const formatDate = (tickValue) => {
+  const months = {
+    "01": "Jan",
+    "02": "Feb",
+    "03": "Mar",
+    "04": "Apr",
+  }
+  const day = tickValue.slice(8)
+  const month = months[tickValue.slice(5, 7)]
+
+  return `${month} ${day}`
+}
+
+const CustomizedAxisTick = ({ x, y, payload }) => {
+  return (
+    <g transform={`translate(${x},${y})`}>
+      <text
+        x={0}
+        y={0}
+        dy={16}
+        textAnchor="end"
+        fill="#fdf9ed"
+        fontSize="0.8rem"
+      >
+        {formatDate(payload.value)}
+      </text>
+    </g>
+  )
+}
+
+const CustomizedYAxisTick = ({ x, y, payload }) => {
+  return (
+    <g transform={`translate(${x},${y})`}>
+      <text
+        x={0}
+        y={0}
+        dy={16}
+        textAnchor="end"
+        fill="#fdf9ed"
+        fontSize="0.8rem"
+      >
+        {thousands_separators(payload.value)}
+      </text>
+    </g>
+  )
+}
+
 const LineChartTrend = () => {
   return (
     <LineChart
@@ -101,23 +148,13 @@ const LineChartTrend = () => {
         dataKey="date"
         tickLine={false}
         stroke="#fdf9ed"
-        tickFormatter={(tickValue) => {
-          const months = {
-            "01": "Jan",
-            "02": "Feb",
-            "03": "Mar",
-            "04": "Apr",
-          }
-          const day = tickValue.slice(8)
-          const month = months[tickValue.slice(5, 7)]
-
-          return `${month} ${day}`
-        }}
+        tick={<CustomizedAxisTick />}
       />
       <YAxis
         tickLine={false}
         tickFormatter={thousands_separators}
         stroke="#fdf9ed"
+        tick={<CustomizedYAxisTick />}
       />
       <Tooltip
         contentStyle={{ background: "#60738f" }}
