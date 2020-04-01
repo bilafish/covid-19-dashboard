@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import LoadingLottie from "../components/lottie/loading"
 import SearchBar from "../components/searchbar"
+import LineChartTrend from "../components/linechart"
 import { countriesHashmap, countries } from "../utils/countrieshashmap"
 import thousands_separators from "../utils/numberformatter"
 import arraySorter from "../utils/arraysorter"
@@ -16,14 +17,16 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-self: center;
-
   box-shadow: 0.1rem 0.1rem 0.5rem #56667e;
+
   @media (min-width: 800px) {
     grid-column: 1 / 12;
     grid-row: 5 / 11;
-    width: 38rem;
     margin: 0 0 0 1rem;
     height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 `
 
@@ -39,7 +42,7 @@ const CountriesList = styled.div`
   align-items: center;
   padding: 0 1rem;
   overflow: auto;
-  height: 75%;
+  height: 70%;
   ::-webkit-scrollbar {
     width: 0.4rem;
   }
@@ -92,7 +95,7 @@ const CountryMetrics = () => {
 
   return (
     <Container>
-      <div style={{ width: "100%", paddingTop: "1rem" }}>
+      <div style={{ width: "40%", paddingTop: "1rem", paddingLeft: "1rem" }}>
         <Header>
           <SearchBar handler={setSearchValue} />
           <h4>Confirmed Cases by Country</h4>
@@ -129,6 +132,16 @@ const CountryMetrics = () => {
             </>
           )}
         </CountriesList>
+      </div>
+      <div
+        style={{
+          alignSelf: "center",
+          paddingTop: "1rem",
+          paddingLeft: "1rem",
+          paddingRight: "1rem",
+        }}
+      >
+        <LineChartTrend />
       </div>
     </Container>
   )
