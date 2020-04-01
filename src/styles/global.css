@@ -20,3 +20,19 @@ a {
 ::-moz-selection {
   background: #ffb7b7; /* Gecko Browsers */
 }
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #97a6bc;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #97a6bc;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #97a6bc;
+}
