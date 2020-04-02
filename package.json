@@ -1,7 +1,7 @@
 {
   "name": "covid-19-dashboard",
   "private": true,
-  "description": "A dashboard to show the current global trends of the Covid-19 pandemic.",
+  "description": "A dashboard to show the current global trends of the Covid-19 pandemic and share useful information on how to fight the virus together.",
   "version": "0.1.0",
   "author": "Jason Zheng <jasonzhengyj@gmail.com>",
   "dependencies": {
@@ -16,6 +16,7 @@
     "gatsby-plugin-react-helmet": "^3.2.1",
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.5.3",
+    "gatsby-plugin-sitemap": "^2.3.1",
     "gatsby-plugin-styled-components": "^3.2.1",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-sharp": "^2.4.3",
@@ -46,9 +47,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/bilafish/covid-19-dashboard"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/bilafish/covid-19-dashboard/issues"
   }
 }
