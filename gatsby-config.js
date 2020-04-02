@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Let's Fight Covid-19 Together 💪`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `A dashboard to show the current global trends of the Covid-19 pandemic and share useful information on how to fight the virus together.`,
     author: `@bilafish`,
   },
   plugins: [
