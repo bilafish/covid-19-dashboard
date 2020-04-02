@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
 import Header from "./header"
 import SideNavBar from "./sidenavbar"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const Layout = ({ children }) => {
   const matches = useMediaQuery("(min-width:800px)")
@@ -36,7 +37,7 @@ const Layout = ({ children }) => {
           >
             © {new Date().getFullYear()}, Built with 💜
             {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+            <OutboundLink href="https://www.gatsbyjs.org">Gatsby.</OutboundLink>
           </footer>
         )}
       </div>
