@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import GlobalMetrics from "../components/globalmetrics"
 import CountryMetrics from "../components/countrymetrics"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const Main = styled.div`
   display: flex;
@@ -47,7 +48,7 @@ const IndexPage = () => {
           <footer style={{ marginBottom: "1.5rem" }}>
             © {new Date().getFullYear()}, Built with 💜
             {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+            <OutboundLink href="https://www.gatsbyjs.org">Gatsby</OutboundLink>
           </footer>
         )}
       </Main>
