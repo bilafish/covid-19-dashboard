@@ -11,7 +11,6 @@ import arraySorter from "../utils/arraysorter"
 const Container = styled.div`
   background: #6b809e;
   border-radius: 1rem;
-  height: 48rem;
   margin: 1.5rem 2rem 1.5rem 2rem;
   padding: 0 0 0.5rem 0;
   text-align: center;
@@ -46,6 +45,21 @@ const LeftPanel = styled.div`
   @media (max-width: 800px) {
     width: 100%;
     padding: 1rem 1rem;
+  }
+`
+
+const MapPanel = styled.div`
+  width: 500px;
+  height: 350px;
+  z-index: 100;
+  background: #60738f;
+  border-radius: 1rem;
+  padding: 1rem;
+  align-self: center;
+  margin-right: 1rem;
+  @media (max-width: 800px) {
+    width: 80%;
+    margin: 1rem 0 0.5rem 0;
   }
 `
 
@@ -159,20 +173,9 @@ const CountryMetrics = () => {
       >
         <LineChartTrend />
       </div>
-      <div
-        style={{
-          width: "500px",
-          height: "350px",
-          zIndex: "100",
-          background: "#60738f",
-          borderRadius: "1rem",
-          padding: "1rem",
-          alignSelf: "center",
-          marginRight: "1rem",
-        }}
-      >
+      <MapPanel>
         <Map />
-      </div>
+      </MapPanel>
     </Container>
   )
 }

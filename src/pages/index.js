@@ -10,6 +10,7 @@ import { OutboundLink } from "gatsby-plugin-google-analytics"
 const Main = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   text-align: center;
 
@@ -34,6 +35,15 @@ const Title = styled.h2`
   }
 `
 
+const Footer = styled.footer`
+  margin: 3rem 0 1rem 1rem;
+  padding-left: 6rem;
+  @media (max-width: 800px) {
+    margin: 0 0 1rem 0;
+    padding: 0;
+  }
+`
+
 const IndexPage = () => {
   return (
     <Layout>
@@ -43,11 +53,11 @@ const IndexPage = () => {
         <GlobalMetrics />
         <CountryMetrics />
       </Main>
-      <footer style={{ margin: "3rem 0 1rem 1rem", paddingLeft: "6rem" }}>
+      <Footer>
         © {new Date().getFullYear()}, Built with 💜
         {` `}
         <OutboundLink href="https://www.gatsbyjs.org">Gatsby</OutboundLink>
-      </footer>
+      </Footer>
     </Layout>
   )
 }

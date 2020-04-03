@@ -11,7 +11,9 @@ const Container = styled.div`
   align-self: start;
   justify-self: center;
   width: 100%;
-  margin-left: 3rem;
+  @media (min-width: 800px) {
+    margin-left: 3rem;
+  }
 `
 const Title = styled.div`
   font-size: 1.5rem;
@@ -43,6 +45,18 @@ const CardContainer = styled.div`
   flex-wrap: wrap;
   margin-top: 0.5rem;
   width: 100%;
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
+`
+
+const DataLastUpdatedLabel = styled.div`
+  margin-left: 1.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+  @media (min-width: 800px) {
+    text-align: left;
+  }
 `
 
 const calculateDelta = (current, previous) => {
@@ -155,16 +169,9 @@ const GlobalMetrics = () => {
         )}
       </CardContainer>
       {data && (
-        <div
-          style={{
-            marginLeft: "1.5rem",
-            fontSize: "0.8rem",
-            textAlign: "left",
-            paddingBottom: "rem",
-          }}
-        >
+        <DataLastUpdatedLabel>
           Last Updated at {data.lastUpdated}
-        </div>
+        </DataLastUpdatedLabel>
       )}
     </Container>
   )
