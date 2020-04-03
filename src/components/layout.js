@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
 import Header from "./header"
 import SideNavBar from "./sidenavbar"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const Layout = ({ children }) => {
   const matches = useMediaQuery("(min-width:800px)")
@@ -23,23 +22,11 @@ const Layout = ({ children }) => {
       <div
         style={{
           margin: `0 auto`,
+          textAlign: "center",
         }}
       >
         {matches && <SideNavBar />}
         <main>{children}</main>
-        {matches && (
-          <footer
-            style={{
-              position: "fixed",
-              bottom: "1rem",
-              right: "2rem",
-            }}
-          >
-            © {new Date().getFullYear()}, Built with 💜
-            {` `}
-            <OutboundLink href="https://www.gatsbyjs.org">Gatsby.</OutboundLink>
-          </footer>
-        )}
       </div>
     </>
   )
