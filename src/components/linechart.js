@@ -83,81 +83,8 @@ const data = [
   { date: "2020-03-30", confirmed: 782365, deaths: 37582 },
   { date: "2020-03-31", confirmed: 857487, deaths: 42107 },
   { date: "2020-04-01", confirmed: 932605, deaths: 46809 },
+  {'date': '2020-04-02', 'confirmed': 1013157, 'deaths': 52983},
 ]
-
-// const data = [
-//   { date: "2020-01-22", confirmed: 555, deaths: 17 },
-//   { date: "2020-01-23", confirmed: 654, deaths: 18 },
-//   { date: "2020-01-24", confirmed: 941, deaths: 26 },
-//   { date: "2020-01-25", confirmed: 1434, deaths: 42 },
-//   { date: "2020-01-26", confirmed: 2118, deaths: 56 },
-//   { date: "2020-01-27", confirmed: 2927, deaths: 82 },
-//   { date: "2020-01-28", confirmed: 5578, deaths: 131 },
-//   { date: "2020-01-29", confirmed: 6166, deaths: 133 },
-//   { date: "2020-01-30", confirmed: 8234, deaths: 171 },
-//   { date: "2020-01-31", confirmed: 9927, deaths: 213 },
-//   { date: "2020-02-01", confirmed: 12038, deaths: 259 },
-//   { date: "2020-02-02", confirmed: 16787, deaths: 362 },
-//   { date: "2020-02-03", confirmed: 19881, deaths: 426 },
-//   { date: "2020-02-04", confirmed: 23892, deaths: 492 },
-//   { date: "2020-02-05", confirmed: 27635, deaths: 564 },
-//   { date: "2020-02-06", confirmed: 30794, deaths: 634 },
-//   { date: "2020-02-07", confirmed: 34391, deaths: 719 },
-//   { date: "2020-02-08", confirmed: 37120, deaths: 806 },
-//   { date: "2020-02-09", confirmed: 40150, deaths: 906 },
-//   { date: "2020-02-10", confirmed: 42762, deaths: 1013 },
-//   { date: "2020-02-11", confirmed: 44802, deaths: 1113 },
-//   { date: "2020-02-12", confirmed: 45221, deaths: 1118 },
-//   { date: "2020-02-13", confirmed: 60368, deaths: 1371 },
-//   { date: "2020-02-14", confirmed: 66885, deaths: 1523 },
-//   { date: "2020-02-15", confirmed: 69030, deaths: 1666 },
-//   { date: "2020-02-16", confirmed: 71224, deaths: 1770 },
-//   { date: "2020-02-17", confirmed: 73258, deaths: 1868 },
-//   { date: "2020-02-18", confirmed: 75136, deaths: 2007 },
-//   { date: "2020-02-19", confirmed: 75639, deaths: 2122 },
-//   { date: "2020-02-20", confirmed: 76197, deaths: 2247 },
-//   { date: "2020-02-21", confirmed: 76819, deaths: 2251 },
-//   { date: "2020-02-22", confirmed: 78572, deaths: 2458 },
-//   { date: "2020-02-23", confirmed: 78958, deaths: 2469 },
-//   { date: "2020-02-24", confirmed: 79561, deaths: 2629 },
-//   { date: "2020-02-25", confirmed: 80406, deaths: 2708 },
-//   { date: "2020-02-26", confirmed: 81388, deaths: 2770 },
-//   { date: "2020-02-27", confirmed: 82746, deaths: 2814 },
-//   { date: "2020-02-28", confirmed: 84112, deaths: 2872 },
-//   { date: "2020-02-29", confirmed: 86011, deaths: 2941 },
-//   { date: "2020-03-01", confirmed: 88369, deaths: 2996 },
-//   { date: "2020-03-02", confirmed: 90306, deaths: 3085 },
-//   { date: "2020-03-03", confirmed: 92840, deaths: 3160 },
-//   { date: "2020-03-04", confirmed: 95120, deaths: 3254 },
-//   { date: "2020-03-05", confirmed: 97886, deaths: 3348 },
-//   { date: "2020-03-06", confirmed: 101801, deaths: 3460 },
-//   { date: "2020-03-07", confirmed: 105847, deaths: 3558 },
-//   { date: "2020-03-08", confirmed: 109821, deaths: 3802 },
-//   { date: "2020-03-09", confirmed: 113590, deaths: 3988 },
-//   { date: "2020-03-10", confirmed: 118620, deaths: 4262 },
-//   { date: "2020-03-11", confirmed: 125875, deaths: 4615 },
-//   { date: "2020-03-12", confirmed: 128352, deaths: 4720 },
-//   { date: "2020-03-13", confirmed: 145205, deaths: 5404 },
-//   { date: "2020-03-14", confirmed: 156101, deaths: 5819 },
-//   { date: "2020-03-15", confirmed: 167454, deaths: 6440 },
-//   { date: "2020-03-16", confirmed: 181574, deaths: 7126 },
-//   { date: "2020-03-17", confirmed: 197102, deaths: 7905 },
-//   { date: "2020-03-18", confirmed: 214821, deaths: 8733 },
-//   { date: "2020-03-19", confirmed: 242500, deaths: 9867 },
-//   { date: "2020-03-20", confirmed: 272035, deaths: 11299 },
-//   { date: "2020-03-21", confirmed: 304396, deaths: 12973 },
-//   { date: "2020-03-22", confirmed: 336953, deaths: 14651 },
-//   { date: "2020-03-23", confirmed: 378235, deaths: 16505 },
-//   { date: "2020-03-24", confirmed: 418045, deaths: 18625 },
-//   { date: "2020-03-25", confirmed: 467653, deaths: 21181 },
-//   { date: "2020-03-26", confirmed: 529591, deaths: 23970 },
-//   { date: "2020-03-27", confirmed: 593291, deaths: 27198 },
-//   { date: "2020-03-28", confirmed: 660706, deaths: 30652 },
-//   { date: "2020-03-29", confirmed: 720117, deaths: 33925 },
-//   { date: "2020-03-30", confirmed: 782365, deaths: 37582 },
-//   { date: "2020-03-31", confirmed: 857487, deaths: 42107 },
-//   { date: "2020-04-01", confirmed: 932605, deaths: 46809 },
-// ]
 
 const formatDate = (tickValue) => {
   const months = {
@@ -270,13 +197,7 @@ const LineChartTrend = () => {
         dot={false}
         strokeWidth={3}
       />
-      <Line
-        type="monotone"
-        dataKey="recovered"
-        stroke="#81D3E1"
-        dot={false}
-        strokeWidth={3}
-      />
+
       <Line
         type="monotone"
         dataKey="deaths"
