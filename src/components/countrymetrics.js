@@ -3,6 +3,7 @@ import styled from "styled-components"
 import LoadingLottie from "../components/lottie/loading"
 import SearchBar from "../components/searchbar"
 import LineChartTrend from "../components/linechart"
+import Map from "../components/map/heatmap"
 import { countriesHashmap, countries } from "../utils/countrieshashmap"
 import thousands_separators from "../utils/numberformatter"
 import arraySorter from "../utils/arraysorter"
@@ -12,7 +13,7 @@ const Container = styled.div`
   border-radius: 1rem;
   height: 48rem;
   margin: 1.5rem 2rem 1.5rem 2rem;
-  padding: 0.5rem 0.5rem;
+  padding: 0 0 0.5rem 0;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -22,10 +23,12 @@ const Container = styled.div`
 
   @media (min-width: 800px) {
     grid-column: 1 / 12;
-    grid-row: 5 / 11;
-    margin: 0 0 0 1rem;
-    height: 90%;
+    grid-row: 5/11;
+    margin: 0 0 0 2rem;
+    width: 100%;
+    height: 100%;
     display: flex;
+    margin: 1rem 0rem 0rem 5rem;
     flex-direction: row;
     justify-content: space-evenly;
   }
@@ -38,7 +41,6 @@ const Header = styled.div`
 `
 
 const LeftPanel = styled.div`
-  width: 40%;
   padding-top: 1rem;
   padding-left: 1rem;
   @media (max-width: 800px) {
@@ -156,6 +158,20 @@ const CountryMetrics = () => {
         }}
       >
         <LineChartTrend />
+      </div>
+      <div
+        style={{
+          width: "500px",
+          height: "350px",
+          zIndex: "100",
+          background: "#60738f",
+          borderRadius: "1rem",
+          padding: "1rem",
+          alignSelf: "center",
+          marginRight: "1rem",
+        }}
+      >
+        <Map />
       </div>
     </Container>
   )

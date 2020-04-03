@@ -6,14 +6,17 @@ import thousands_separators from "../utils/numberformatter"
 import UpIcon from "../images/icons/up-triangle.svg"
 
 const Container = styled.div`
-  grid-column: 1 / 12;
+  grid-column: 1 / 8;
   grid-row: 2 / 6;
   align-self: start;
   justify-self: center;
+  width: 100%;
+  margin-left: 3rem;
 `
 const Title = styled.div`
   font-size: 1.5rem;
   margin-left: 1.5rem;
+  text-align: left;
   @media (max-width: 800px) {
     margin-left: 0;
     text-align: center;
@@ -36,9 +39,10 @@ const BasicCard = styled.div`
 const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 0.5rem;
+  width: 100%;
 `
 
 const calculateDelta = (current, previous) => {
@@ -155,7 +159,8 @@ const GlobalMetrics = () => {
           style={{
             marginLeft: "1.5rem",
             fontSize: "0.8rem",
-            textAlign: "center",
+            textAlign: "left",
+            paddingBottom: "rem",
           }}
         >
           Last Updated at {data.lastUpdated}
