@@ -23,23 +23,11 @@ const Layout = ({ children }) => {
       <div
         style={{
           margin: `0 auto`,
+          textAlign: "center",
         }}
       >
         {matches && <SideNavBar />}
         <main>{children}</main>
-        {matches && (
-          <footer
-            style={{
-              position: "fixed",
-              bottom: "1rem",
-              right: "2rem",
-            }}
-          >
-            © {new Date().getFullYear()}, Built with 💜
-            {` `}
-            <OutboundLink href="https://www.gatsbyjs.org">Gatsby.</OutboundLink>
-          </footer>
-        )}
       </div>
     </>
   )
