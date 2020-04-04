@@ -57,7 +57,6 @@ const IndexPage = () => {
       </Main>
       <Footer>
         © {new Date().getFullYear()}, Built with 💜
-        {` `}
         <OutboundLink href="https://www.gatsbyjs.org">Gatsby.</OutboundLink>
       </Footer>
     </Layout>
