@@ -1,7 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import Logo from "../images/logo.svg"
+import GithubIcon from "../images/icons/github.svg"
 import { navigate } from "gatsby"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const HomeIcon = () => {
   return (
@@ -32,6 +34,7 @@ const NavContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 1rem 0 0 1rem;
+  margin-bottom: 1rem;
 `
 
 const NavItem = styled.div`
@@ -57,6 +60,12 @@ const SideNavBar = () => {
           <HomeIcon />
         </NavItem>
       </NavContainer>
+      <OutboundLink href="https://github.com/bilafish/covid-19-dashboard">
+        <GithubIcon
+          style={{ position: "relative", top: "28rem" }}
+          fill="#cb8286"
+        />
+      </OutboundLink>
     </BasicNav>
   )
 }
