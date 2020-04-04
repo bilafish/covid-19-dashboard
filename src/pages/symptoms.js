@@ -1,11 +1,7 @@
 import React from "react"
-// import { Link } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import GlobalMetrics from "../components/globalmetrics"
-import CountryMetrics from "../components/countrymetrics"
-import BannerCarousel from "../components/bannercarousel"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const Main = styled.div`
@@ -45,22 +41,20 @@ const Footer = styled.footer`
   }
 `
 
-const IndexPage = () => {
+const SymptomsPage = () => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Symptoms" />
       <Main>
         <Title>Covid-19</Title>
-        <GlobalMetrics />
-        <BannerCarousel />
-        <CountryMetrics />
       </Main>
       <Footer>
         © {new Date().getFullYear()}, Built with 💜
-        <OutboundLink href="https://www.gatsbyjs.org">Gatsby.</OutboundLink>
+        {` `}
+        <OutboundLink href="https://www.gatsbyjs.org">Gatsby</OutboundLink>
       </Footer>
     </Layout>
   )
 }
 
-export default IndexPage
+export default SymptomsPage
