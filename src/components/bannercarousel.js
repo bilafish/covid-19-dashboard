@@ -5,6 +5,7 @@ import MaskLottie from "./lottie/mask"
 import ArrowIcon from "../images/icons/right-arrow.svg"
 import styled from "styled-components"
 import { navigate } from "gatsby"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const StyledCarousel = styled.div`
   grid-column: 7 / 9;
@@ -34,42 +35,49 @@ const BannerCarousel = () => {
   return (
     <StyledCarousel>
       <Slider {...settings}>
-        <StyledBanner
-          onClick={(event) => {
-            navigate("/symptoms")
-          }}
-        >
-          <CovidVirusLottie />
-          <div
-            style={{
-              margin: "0 6px 0 6px",
-              fontWeight: "600",
-              fontSize: "1.1rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+        <OutboundLink href="https://www.who.int/health-topics/coronavirus#tab=tab_3">
+          <StyledBanner
+            onClick={(event) => {
+              // navigate("/symptoms")
             }}
           >
-            <span style={{ width: "70%" }}>Read about the known symptoms</span>
-            <ArrowIcon width="25" fill="white" />
-          </div>
-        </StyledBanner>
-        <StyledBanner>
-          <MaskLottie />
-          <div
-            style={{
-              margin: "0 6px 0 6px",
-              fontWeight: "600",
-              fontSize: "1.1rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <span style={{ width: "65%" }}>Fight Covid-19 together</span>
-            <ArrowIcon width="25" fill="white" />
-          </div>
-        </StyledBanner>
+            <CovidVirusLottie />
+            <div
+              style={{
+                margin: "0 6px 0 6px",
+                fontWeight: "600",
+                fontSize: "1.1rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span style={{ width: "70%" }}>
+                Read about the known symptoms
+              </span>
+              <ArrowIcon width="25" fill="white" />
+            </div>
+          </StyledBanner>
+        </OutboundLink>
+
+        <OutboundLink href="https://www.who.int/health-topics/coronavirus#tab=tab_2">
+          <StyledBanner>
+            <MaskLottie />
+            <div
+              style={{
+                margin: "0 6px 0 6px",
+                fontWeight: "600",
+                fontSize: "1.1rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span style={{ width: "65%" }}>Fight Covid-19 together</span>
+              <ArrowIcon width="25" fill="white" />
+            </div>
+          </StyledBanner>
+        </OutboundLink>
       </Slider>
     </StyledCarousel>
   )
