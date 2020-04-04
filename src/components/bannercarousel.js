@@ -4,7 +4,8 @@ import CovidVirusLottie from "./lottie/covidvirus"
 import MaskLottie from "./lottie/mask"
 import ArrowIcon from "../images/icons/right-arrow.svg"
 import styled from "styled-components"
-import { navigate } from "gatsby"
+import { navigate, useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const StyledCarousel = styled.div`
@@ -28,6 +29,17 @@ const StyledBanner = styled.div`
 `
 
 const BannerCarousel = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "tracetogether.png" }) {
+        childImageSharp {
+          fixed(width: 100, height: 100) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
   const settings = {
     arrows: false,
     dots: true,
@@ -75,6 +87,33 @@ const BannerCarousel = () => {
             >
               <span style={{ width: "65%" }}>Fight Covid-19 together</span>
               <ArrowIcon width="25" fill="white" />
+            </div>
+          </StyledBanner>
+        </OutboundLink>
+        <OutboundLink href="https://www.tracetogether.gov.sg/">
+          <StyledBanner>
+            <Img
+              fixed={data.placeholderImage.childImageSharp.fixed}
+              style={{
+                marginTop: "0.5rem",
+                background: "#fdf9ed",
+                border: "0.5rem solid #fdf9ed",
+                borderRadius: "1rem",
+              }}
+            />
+            <div
+              style={{
+                margin: "0.7rem 0 0 0",
+                fontWeight: "500",
+                fontSize: "1rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span style={{ width: "65%" }}>
+                Support community-driven contact tracing today
+              </span>
             </div>
           </StyledBanner>
         </OutboundLink>
