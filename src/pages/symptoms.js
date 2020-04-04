@@ -43,7 +43,7 @@ const Footer = styled.footer`
 
 const SymptomsPage = () => {
   return (
-    <Layout>
+    <Layout page="symptoms">
       <SEO title="Symptoms" />
       <Main>
         <Title>Covid-19</Title>

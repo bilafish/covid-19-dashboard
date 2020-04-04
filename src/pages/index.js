@@ -47,7 +47,7 @@ const Footer = styled.footer`
 
 const IndexPage = () => {
   return (
-    <Layout>
+    <Layout page="home">
       <SEO title="Home" />
       <Main>
         <Title>Covid-19</Title>
