@@ -3,7 +3,7 @@ module.exports = {
     siteUrl: `https://fight-covid19.netlify.app`,
     title: `Let's Fight Covid-19 Together 💪`,
     description: `A dashboard to show the current global trends of the Covid-19 pandemic and share useful information on how to fight the virus together.`,
-    author: `@bilafish`,
+    author: `Jason Zheng`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
