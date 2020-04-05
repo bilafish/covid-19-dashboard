@@ -5,7 +5,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 import Header from "./header"
 import SideNavBar from "./sidenavbar"
 
-const Layout = ({ children }) => {
+const Layout = (props) => {
   const matches = useMediaQuery("(min-width:800px)")
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -25,8 +25,8 @@ const Layout = ({ children }) => {
           textAlign: "center",
         }}
       >
-        {matches && <SideNavBar />}
-        <main>{children}</main>
+        {matches && <SideNavBar active={props.page} />}
+        <main>{props.children}</main>
       </div>
     </>
   )
