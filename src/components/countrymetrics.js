@@ -107,17 +107,24 @@ const CountryMetrics = () => {
     fetch(`https://covid19.mathdro.id/api/confirmed`)
       .then((response) => response.json())
       .then((resultData) => {
+        let countriesCount = countries.map((item) => {
+          return { ...item }
+        })
         for (let result of resultData) {
           if (countriesHashmap.hasOwnProperty(result.countryRegion)) {
-            countries[countriesHashmap[result.countryRegion]].confirmedCount +=
-              result.confirmed
+            countriesCount[
+              countriesHashmap[result.countryRegion]
+            ].confirmedCount += result.confirmed
           } else {
-            console.log(result.countryRegion)
+            countriesCount.push({
+              country: result.countryRegion,
+              confirmedCount: result.confirmed,
+            })
           }
         }
         // Sort country data by highest confirmed cases
-        countries.sort(arraySorter("confirmedCount", "desc"))
-        setData(countries)
+        countriesCount.sort(arraySorter("confirmedCount", "desc"))
+        setData(countriesCount)
         setLoading(false)
       })
       .catch((error) => console.log(error))

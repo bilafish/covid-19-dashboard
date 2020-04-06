@@ -61,7 +61,7 @@ const SideNavBar = (props) => {
       </NavContainer>
       <OutboundLink href="https://github.com/bilafish/covid-19-dashboard">
         <GithubIcon
-          style={{ position: "relative", top: "28rem" }}
+          style={{ position: "relative", top: "calc(100vh - 20rem)" }}
           fill="#cb8286"
         />
       </OutboundLink>
