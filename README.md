@@ -6,6 +6,8 @@
 
 This dashboard aims to raise awareness on the global pandemic caused by the Covid-19 outbreak and share useful information on safety measures to fight the virus.
 
+<img src="./screenshots/main.png" alt="Main Screen" width="800px"><br/>
+
 [Live Demo](https://fight-covid19.netlify.app/)
 
 ## Technologies
