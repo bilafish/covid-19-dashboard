@@ -90,6 +90,7 @@ const data = [
   { date: "2020-04-06", confirmed: 1345048, deaths: 74565 },
   { date: "2020-04-07", confirmed: 1426096, deaths: 81865 },
   { date: "2020-04-08", confirmed: 1511104, deaths: 88338 },
+  { date: "2020-04-09", confirmed: 1595350, deaths: 95455 },
 ]
 
 const formatDate = (tickValue) => {
