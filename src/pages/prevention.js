@@ -1,7 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PreventionTips from "../components/preventiontips"
@@ -49,18 +47,6 @@ const Container = styled.div`
 `
 
 const PreventionPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "prevention-hero.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 941) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <Layout page="prevention">
       <SEO title="Prevention" />
