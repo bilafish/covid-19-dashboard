@@ -122,23 +122,27 @@ const GlobalMetrics = () => {
             <BasicCard>
               <span>Confirmed</span>
               <h2 style={{ color: "#FFF376" }}>{data.confirmed.value}</h2>
-              <span
-                style={{
-                  fontWeight: "100",
-                  color: "#e4e0d5",
-                  fontSize: "0.95rem",
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                {data.confirmed.delta}%
-                <UpIcon
-                  width="0.8rem"
-                  fill="#67a9b4"
-                  style={{ marginLeft: "0.5rem" }}
-                />{" "}
-              </span>
+              {data.deaths.delta > 0 ? (
+                <span
+                  style={{
+                    fontWeight: "100",
+                    color: "#e4e0d5",
+                    fontSize: "0.95rem",
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  {data.confirmed.delta}%
+                  <UpIcon
+                    width="0.8rem"
+                    fill="#67a9b4"
+                    style={{ marginLeft: "0.5rem" }}
+                  />{" "}
+                </span>
+              ) : (
+                <p></p>
+              )}
             </BasicCard>
             <BasicCard>
               <span>Recovered</span>
@@ -147,23 +151,27 @@ const GlobalMetrics = () => {
             <BasicCard>
               <span>Deaths</span>
               <h2 style={{ color: "#FEA3A8" }}>{data.deaths.value}</h2>
-              <span
-                style={{
-                  fontWeight: "100",
-                  color: "#e4e0d5",
-                  fontSize: "0.95rem",
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                {data.deaths.delta}%
-                <UpIcon
-                  width="0.8rem"
-                  fill="#67a9b4"
-                  style={{ marginLeft: "0.5rem" }}
-                />{" "}
-              </span>
+              {data.deaths.delta > 0 ? (
+                <span
+                  style={{
+                    fontWeight: "100",
+                    color: "#e4e0d5",
+                    fontSize: "0.95rem",
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  {data.deaths.delta}%
+                  <UpIcon
+                    width="0.8rem"
+                    fill="#67a9b4"
+                    style={{ marginLeft: "0.5rem" }}
+                  />{" "}
+                </span>
+              ) : (
+                <p></p>
+              )}
             </BasicCard>
           </>
         )}
