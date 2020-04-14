@@ -68,24 +68,26 @@ const BannerCarousel = () => {
           </div>
         </StyledBanner>
 
-        <OutboundLink href="https://www.who.int/health-topics/coronavirus#tab=tab_2">
-          <StyledBanner>
-            <MaskLottie />
-            <div
-              style={{
-                margin: "0 6px 0 6px",
-                fontWeight: "600",
-                fontSize: "1.1rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <span style={{ width: "65%" }}>Fight Covid-19 together</span>
-              <ArrowIcon width="25" fill="white" />
-            </div>
-          </StyledBanner>
-        </OutboundLink>
+        <StyledBanner
+          onClick={(event) => {
+            navigate("/prevention")
+          }}
+        >
+          <MaskLottie />
+          <div
+            style={{
+              margin: "0 6px 0 6px",
+              fontWeight: "600",
+              fontSize: "1.1rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <span style={{ width: "65%" }}>Fight Covid-19 together</span>
+            <ArrowIcon width="25" fill="white" />
+          </div>
+        </StyledBanner>
         <OutboundLink href="https://www.tracetogether.gov.sg/">
           <StyledBanner>
             <Img
