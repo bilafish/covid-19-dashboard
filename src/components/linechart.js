@@ -100,6 +100,7 @@ const data = [
   { date: "2020-04-16", confirmed: 2152646, deaths: 143801 },
   { date: "2020-04-17", confirmed: 2240190, deaths: 153821 },
   { date: "2020-04-18", confirmed: 2317758, deaths: 159509 },
+  { date: "2020-04-19", confirmed: 2401378, deaths: 165043 },
 ]
 
 const formatDate = (tickValue) => {
@@ -108,6 +109,14 @@ const formatDate = (tickValue) => {
     "02": "Feb",
     "03": "Mar",
     "04": "Apr",
+    "05": "May",
+    "06": "Jun",
+    "07": "Jul",
+    "08": "Aug",
+    "09": "Sep",
+    "10": "Oct",
+    "11": "Nov",
+    "12": "Dec",
   }
   const day = tickValue.slice(8)
   const month = months[tickValue.slice(5, 7)]
