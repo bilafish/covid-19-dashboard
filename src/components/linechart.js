@@ -61,11 +61,11 @@ const data = [
   { date: "2020-03-08", confirmed: 109753, deaths: 3801 },
   { date: "2020-03-09", confirmed: 113521, deaths: 3987 },
   { date: "2020-03-10", confirmed: 118369, deaths: 4263 },
-  { date: "2020-03-11", confirmed: 125697, deaths: 4610 },
-  { date: "2020-03-12", confirmed: 128229, deaths: 4721 },
+  { date: "2020-03-11", confirmed: 125699, deaths: 4610 },
+  { date: "2020-03-12", confirmed: 128246, deaths: 4722 },
   { date: "2020-03-13", confirmed: 145187, deaths: 5409 },
   { date: "2020-03-14", confirmed: 156246, deaths: 5828 },
-  { date: "2020-03-15", confirmed: 166137, deaths: 6428 },
+  { date: "2020-03-15", confirmed: 166885, deaths: 6469 },
   { date: "2020-03-16", confirmed: 181278, deaths: 7149 },
   { date: "2020-03-17", confirmed: 196788, deaths: 7955 },
   { date: "2020-03-18", confirmed: 215936, deaths: 8848 },
@@ -73,8 +73,8 @@ const data = [
   { date: "2020-03-20", confirmed: 272377, deaths: 11436 },
   { date: "2020-03-21", confirmed: 304680, deaths: 13136 },
   { date: "2020-03-22", confirmed: 337376, deaths: 14835 },
-  { date: "2020-03-23", confirmed: 378074, deaths: 16753 },
-  { date: "2020-03-24", confirmed: 418074, deaths: 19013 },
+  { date: "2020-03-23", confirmed: 378102, deaths: 16754 },
+  { date: "2020-03-24", confirmed: 418079, deaths: 19014 },
   { date: "2020-03-25", confirmed: 467723, deaths: 21785 },
   { date: "2020-03-26", confirmed: 529701, deaths: 24788 },
   { date: "2020-03-27", confirmed: 593423, deaths: 28288 },
@@ -92,28 +92,32 @@ const data = [
   { date: "2020-04-08", confirmed: 1480200, deaths: 93354 },
   { date: "2020-04-09", confirmed: 1565538, deaths: 100891 },
   { date: "2020-04-10", confirmed: 1657929, deaths: 108113 },
-  { date: "2020-04-11", confirmed: 1733323, deaths: 114044 },
-  { date: "2020-04-12", confirmed: 1834684, deaths: 119846 },
+  { date: "2020-04-11", confirmed: 1736025, deaths: 114146 },
+  { date: "2020-04-12", confirmed: 1835164, deaths: 119853 },
   { date: "2020-04-13", confirmed: 1905192, deaths: 125561 },
-  { date: "2020-04-14", confirmed: 1974659, deaths: 132414 },
+  { date: "2020-04-14", confirmed: 1975581, deaths: 132439 },
   { date: "2020-04-15", confirmed: 2055506, deaths: 140658 },
   { date: "2020-04-16", confirmed: 2151872, deaths: 147946 },
   { date: "2020-04-17", confirmed: 2239723, deaths: 156804 },
-  { date: "2020-04-18", confirmed: 2313046, deaths: 163214 },
+  { date: "2020-04-18", confirmed: 2313101, deaths: 163214 },
   { date: "2020-04-19", confirmed: 2396461, deaths: 167773 },
   { date: "2020-04-20", confirmed: 2467203, deaths: 173098 },
-  { date: "2020-04-21", confirmed: 2539894, deaths: 180113 },
-  { date: "2020-04-22", confirmed: 2462308, deaths: 165509 },
+  { date: "2020-04-21", confirmed: 2544333, deaths: 180237 },
+  { date: "2020-04-22", confirmed: 2619540, deaths: 186914 },
   { date: "2020-04-23", confirmed: 2708547, deaths: 193667 },
-  { date: "2020-04-24", confirmed: 2591609, deaths: 177398 },
-  { date: "2020-04-25", confirmed: 2880798, deaths: 206185 },
-  { date: "2020-04-26", confirmed: 2953564, deaths: 209881 },
-  { date: "2020-04-27", confirmed: 3019022, deaths: 214278 },
-  { date: "2020-04-28", confirmed: 3082110, deaths: 220361 },
-  { date: "2020-04-29", confirmed: 3005412, deaths: 203565 },
+  { date: "2020-04-24", confirmed: 2795875, deaths: 199999 },
+  { date: "2020-04-25", confirmed: 2881140, deaths: 206187 },
+  { date: "2020-04-26", confirmed: 2955033, deaths: 209900 },
+  { date: "2020-04-27", confirmed: 3023722, deaths: 214444 },
+  { date: "2020-04-28", confirmed: 3097190, deaths: 220799 },
+  { date: "2020-04-29", confirmed: 3172287, deaths: 227665 },
   { date: "2020-04-30", confirmed: 3256853, deaths: 233357 },
   { date: "2020-05-01", confirmed: 3343777, deaths: 238619 },
-  { date: "2020-05-02", confirmed: 3397240, deaths: 242533 },
+  { date: "2020-05-02", confirmed: 3427343, deaths: 243808 },
+  { date: "2020-05-03", confirmed: 3506729, deaths: 247470 },
+  { date: "2020-05-04", confirmed: 3583055, deaths: 251537 },
+  { date: "2020-05-05", confirmed: 3662691, deaths: 257239 },
+  { date: "2020-05-06", confirmed: 3755341, deaths: 263831 },
 ]
 
 const formatDate = (tickValue) => {
@@ -209,18 +213,7 @@ const LineChartTrend = () => {
             name.charAt(0).toUpperCase() + name.slice(1),
           ]
         }}
-        labelFormatter={(label) => {
-          const months = {
-            "01": "Jan",
-            "02": "Feb",
-            "03": "Mar",
-            "04": "Apr",
-          }
-          const day = label.slice(8)
-          const month = months[label.slice(5, 7)]
-
-          return `${month} ${day}`
-        }}
+        labelFormatter={(label) => formatDate(label)}
       />
       <Legend
         iconType="circle"
