@@ -29,16 +29,6 @@ const Map = () => {
     setViewport({ ...viewport, ...viewport2 })
   }
 
-  const goToViewport = (longitude, latitude) => {
-    onViewportChange({
-      longitude,
-      latitude,
-      zoom: 13,
-      transitionInterpolator: new FlyToInterpolator({ speed: 2 }),
-      transitionDuration: "auto",
-    })
-  }
-
   return (
     <Container>
       <MapGL
