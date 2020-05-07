@@ -14,6 +14,7 @@ This dashboard aims to raise awareness on the global pandemic caused by the Covi
 
 - [Gatsby](https://www.gatsbyjs.org/) (Front-End)
 - [mathdroid API](https://github.com/mathdroid/covid-19-api) (Data sourced from John Hopkins University CSSE)
+- [Mapbox](https://www.mapbox.com/) (For heatmap visualisation)
 
 ## Development
 
