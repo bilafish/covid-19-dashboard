@@ -68,7 +68,7 @@ const CountriesList = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 1rem;
-  overflow: auto;
+  overflow-y: auto;
   height: 18rem;
   @media (max-width: 800px) {
     height: 22rem;
@@ -85,12 +85,6 @@ const CountriesList = styled.div`
     border-radius: 10rem;
     border: 5px solid #cac7be;
   }
-`
-const CountriesListRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 10rem;
-  margin-bottom: 0.5rem;
 `
 
 const CountryMetrics = () => {
@@ -141,32 +135,32 @@ const CountryMetrics = () => {
           {loading ? (
             <LoadingLottie />
           ) : (
-            <>
+            <table>
               {filteredData.map((country, index) => (
-                <CountriesListRow key={index}>
-                  <span
+                <tr key={index}>
+                  <td
                     style={{
-                      width: "50%",
                       textAlign: "left",
+                      paddingLeft: "3rem",
                       color: "#FFF376",
                     }}
                   >
                     <strong>
                       {thousands_separators(country.confirmedCount)}
                     </strong>
-                  </span>
-                  <span
+                  </td>
+                  <td
                     style={{
-                      width: "50%",
                       textAlign: "left",
                       fontWeight: "100",
+                      width: "40%",
                     }}
                   >
                     {country.country}
-                  </span>
-                </CountriesListRow>
+                  </td>
+                </tr>
               ))}
-            </>
+            </table>
           )}
         </CountriesList>
       </LeftPanel>
