@@ -112,7 +112,7 @@ const data = [
   { date: "2020-04-28", confirmed: 3097229, deaths: 220801 },
   { date: "2020-04-29", confirmed: 3172287, deaths: 227665 },
   { date: "2020-04-30", confirmed: 3256910, deaths: 233360 },
-  { date: "2020-05-01", confirmed: 3343777, deaths: 238619 },
+  { date: "2020-05-01", confirmed: 3345558, deaths: 238619 },
   { date: "2020-05-02", confirmed: 3427584, deaths: 243813 },
   { date: "2020-05-03", confirmed: 3506729, deaths: 247470 },
   { date: "2020-05-04", confirmed: 3583055, deaths: 251537 },
@@ -122,6 +122,8 @@ const data = [
   { date: "2020-05-08", confirmed: 3938064, deaths: 274898 },
   { date: "2020-05-09", confirmed: 4024009, deaths: 279311 },
   { date: "2020-05-10", confirmed: 4101699, deaths: 282709 },
+  { date: "2020-05-11", confirmed: 4177502, deaths: 286330 },
+  { date: "2020-05-12", confirmed: 4261945, deaths: 291962 },
 ]
 
 const formatDate = (tickValue) => {
