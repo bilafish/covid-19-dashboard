@@ -90,6 +90,7 @@ const CountriesList = styled.div`
 const CountryMetrics = () => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
+  const [graphData, setGraphData] = useState([])
   const [searchValue, setSearchValue] = useState("")
   let filteredData = data.filter((country) => {
     return (
@@ -98,13 +99,24 @@ const CountryMetrics = () => {
   })
 
   useEffect(() => {
-    fetch(`https://covid19.mathdro.id/api/confirmed`)
-      .then((response) => response.json())
-      .then((resultData) => {
+    const promises = [
+      fetch(`https://covid19.mathdro.id/api/confirmed`),
+      fetch(`https://covid19.mathdro.id/api/daily`),
+    ]
+
+    Promise.all(promises)
+      .then((res) => {
+        let responses = res.map((response) => response.json())
+        return Promise.all(responses)
+      })
+      .then((json) => {
+        const confirmed = json[0]
+        const daily = json[1]
+        // Parse countries confirmed cases data
         let countriesCount = countries.map((item) => {
           return { ...item }
         })
-        for (let result of resultData) {
+        for (let result of confirmed) {
           if (countriesHashmap.hasOwnProperty(result.countryRegion)) {
             countriesCount[
               countriesHashmap[result.countryRegion]
@@ -119,9 +131,21 @@ const CountryMetrics = () => {
         // Sort country data by highest confirmed cases
         countriesCount.sort(arraySorter("confirmedCount", "desc"))
         setData(countriesCount)
+
+        // Parse graph data of daily confirmed/death cases
+        let graph = daily.map((day) => {
+          return {
+            date: day.reportDate,
+            confirmed: day.totalConfirmed,
+            deaths: day.deaths.total,
+          }
+        })
+        setGraphData(graph)
         setLoading(false)
       })
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        console.log(error)
+      })
   }, [])
 
   return (
@@ -172,7 +196,7 @@ const CountryMetrics = () => {
           paddingRight: "1rem",
         }}
       >
-        <LineChartTrend />
+        {loading ? <LoadingLottie /> : <LineChartTrend data={graphData} />}
       </div>
       <MapPanel>
         <Map />
